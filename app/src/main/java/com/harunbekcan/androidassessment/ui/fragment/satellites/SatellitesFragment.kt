@@ -1,6 +1,7 @@
 package com.harunbekcan.androidassessment.ui.fragment.satellites
 
 import android.os.Bundle
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -20,6 +21,7 @@ class SatellitesFragment : BaseFragment<FragmentSatellitesBinding>(FragmentSatel
     private val satellitesAdapter by lazy { SatellitesAdapter() }
     override fun prepareView(savedInstanceState: Bundle?) {
         initObserver()
+        initSearchView()
     }
 
     private fun initAdapter(list: List<Satellite>) {
@@ -30,6 +32,19 @@ class SatellitesFragment : BaseFragment<FragmentSatellitesBinding>(FragmentSatel
     private fun checkProgressBar(isLoading: Boolean) = with(binding) {
         progressBar.isVisible = isLoading
         satellitesRecyclerView.isVisible = isLoading.not()
+    }
+
+    private fun initSearchView(){
+        binding.searchLayout.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(searchKey: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(searchKey: String?): Boolean {
+                searchKey?.let { viewModel.searchSatelliteList(it) }
+                return false
+            }
+        })
     }
 
     private fun initObserver() {
