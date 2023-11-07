@@ -5,4 +5,11 @@
     <string name="active">Active</string>
     <string name="passive">Passive</string>
     <string name="search">Search</string>
+    <string name="cost">Cost:</string>
+    <string name="cost_text">%1$d</string>
+    <string name="height_mass">Height/Mass:</string>
+    <string name="height_mass_text">%d, %d</string>
+
+    <string name="last_position">Last Position:</string>
+    <string name="last_position_text">%.9f, %.9f</string>
 </resources>

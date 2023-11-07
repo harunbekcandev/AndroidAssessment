@@ -63,4 +63,15 @@ dependencies {
 
     //Gson
     implementation ("com.google.code.gson:gson:2.10.1")
+
+    //Kotlinx-Serialization
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+
+    //DataStore
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
+
+    //Room
+    implementation ("androidx.room:room-ktx:2.6.0")
+    implementation ("androidx.room:room-runtime:2.6.0")
+    kapt ("androidx.room:room-compiler:2.6.0")
 }

@@ -1,8 +1,7 @@
 package com.harunbekcan.androidassessment.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.harunbekcan.androidassessment.R
+import androidx.appcompat.app.AppCompatActivity
 import com.harunbekcan.androidassessment.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

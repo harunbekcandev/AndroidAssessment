@@ -12,7 +12,7 @@ import com.harunbekcan.androidassessment.utils.setVisibilityIfLastItem
 
 class SatellitesAdapter : ListAdapter<Satellite, SatellitesAdapter.SatellitesViewHolder>(DiffCallback) {
 
-    var satelliteItemClick: (Int) -> Unit = {}
+    var satelliteItemClick: (Satellite) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SatellitesAdapter.SatellitesViewHolder {
         val binding = ItemSatellitesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -38,7 +38,7 @@ class SatellitesAdapter : ListAdapter<Satellite, SatellitesAdapter.SatellitesVie
             lineView.setVisibilityIfLastItem(adapterPosition == itemCount - 1 )
 
             satelliteContainer.setOnClickListener {
-                satelliteItemClick(item.id)
+                satelliteItemClick(item)
             }
         }
     }

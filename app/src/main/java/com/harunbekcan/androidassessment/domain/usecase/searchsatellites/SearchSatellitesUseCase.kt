@@ -1,4 +1,4 @@
-package com.harunbekcan.androidassessment.domain.usecase
+package com.harunbekcan.androidassessment.domain.usecase.searchsatellites
 
 import com.harunbekcan.androidassessment.domain.repository.SatellitesRepository
 import com.harunbekcan.androidassessment.utils.Resource

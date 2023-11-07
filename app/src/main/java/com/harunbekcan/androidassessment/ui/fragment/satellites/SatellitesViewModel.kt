@@ -2,9 +2,10 @@ package com.harunbekcan.androidassessment.ui.fragment.satellites
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.harunbekcan.androidassessment.domain.usecase.SatellitesUseCase
-import com.harunbekcan.androidassessment.domain.usecase.SearchSatellitesUseCase
+import com.harunbekcan.androidassessment.domain.usecase.satellites.SatellitesUseCase
+import com.harunbekcan.androidassessment.domain.usecase.searchsatellites.SearchSatellitesUseCase
 import com.harunbekcan.androidassessment.utils.Resource
+import com.harunbekcan.androidassessment.utils.orEmptyList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -31,7 +32,7 @@ class SatellitesViewModel @Inject constructor(
                 is Resource.Success -> {
                     result.data.let {
                         _satellitesState.value = _satellitesState.value.copy(
-                            data = it,
+                            data = it.orEmptyList(),
                             isLoading = false
                         )
                     }
@@ -56,7 +57,7 @@ class SatellitesViewModel @Inject constructor(
             when (result) {
                 is Resource.Success -> {
                     _satellitesState.value = _satellitesState.value.copy(
-                            data = result.data,
+                            data = result.data.orEmptyList(),
                             isLoading = false
                     )
                 }

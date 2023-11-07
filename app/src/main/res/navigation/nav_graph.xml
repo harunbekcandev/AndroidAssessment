@@ -18,5 +18,13 @@
         android:id="@+id/satelliteDetailFragment"
         android:name="com.harunbekcan.androidassessment.ui.fragment.satellitedetail.SatelliteDetailFragment"
         android:label="fragment_satellite_detail"
-        tools:layout="@layout/fragment_satellite_detail" />
+        tools:layout="@layout/fragment_satellite_detail" >
+        <argument
+            android:name="satelliteId"
+            app:argType="integer" />
+
+        <argument
+            android:name="satelliteName"
+            app:argType="string" />
+    </fragment>
 </navigation>

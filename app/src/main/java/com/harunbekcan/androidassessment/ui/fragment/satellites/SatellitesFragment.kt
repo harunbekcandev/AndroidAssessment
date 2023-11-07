@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.harunbekcan.androidassessment.base.BaseFragment
 import com.harunbekcan.androidassessment.data.model.Satellite
 import com.harunbekcan.androidassessment.databinding.FragmentSatellitesBinding
@@ -22,11 +23,18 @@ class SatellitesFragment : BaseFragment<FragmentSatellitesBinding>(FragmentSatel
     override fun prepareView(savedInstanceState: Bundle?) {
         initObserver()
         initSearchView()
+        itemClickListener()
     }
 
     private fun initAdapter(list: List<Satellite>) {
         satellitesAdapter.submitList(list)
         binding.satellitesRecyclerView.adapter = satellitesAdapter
+    }
+
+    private fun itemClickListener(){
+        satellitesAdapter.satelliteItemClick = { item->
+            findNavController().navigate(SatellitesFragmentDirections.actionSatellitesFragmentToSatelliteDetailFragment(item.id,item.name))
+        }
     }
 
     private fun checkProgressBar(isLoading: Boolean) = with(binding) {
