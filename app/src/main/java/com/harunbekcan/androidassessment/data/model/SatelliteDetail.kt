@@ -4,8 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.harunbekcan.androidassessment.utils.Constants
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
 @Entity(tableName = "satellite_detail")
 data class SatelliteDetail(
